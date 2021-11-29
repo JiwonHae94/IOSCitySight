@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  LaunchView.swift
 //  IOSCitySight
 //
 //  Created by Jiwon_Hae on 2021/11/30.
@@ -16,6 +16,6 @@ struct LaunchView: View {
 
 struct LaunchView_Previews: PreviewProvider {
     static var previews: some View {
-        LaunchView()
+        LaunchView().environmentObject(ContentModel())
     }
 }

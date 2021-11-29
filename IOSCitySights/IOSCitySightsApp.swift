@@ -11,7 +11,7 @@ import SwiftUI
 struct IOSCitySightsApp: App {
     var body: some Scene {
         WindowGroup {
-            LaunchView()
+            LaunchView().environmentObject(ContentModel())
         }
     }
 }
