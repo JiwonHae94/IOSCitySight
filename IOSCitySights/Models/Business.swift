@@ -10,34 +10,37 @@ import Foundation
 class Business : Decodable, Identifiable, ObservableObject {
     @Published var imageData: Data?
     
-    var id : String?
-    var alias, name, imageURL, url : String?
-    var isClosed : Bool?
-    var reviewCount : Int
-    var categories : [Category]?
-    var rating : Double?
-    var coordinates : Coordinate?
-    var transaction : [String]?
-    var price : String?
-    var location : Location?
-    var phone : String?
-    var displayPhone : String?
-    var distance : Double?
+    var id: String?
+    var alias: String?
+    var name: String?
+    var imageUrl: String?
+    var isClosed: Bool?
+    var url: String?
+    var reviewCount: Int?
+    var categories: [Category]?
+    var rating: Double?
+    var coordinates: Coordinate?
+    var transactions: [String]?
+    var price: String?
+    var location: Location?
+    var phone: String?
+    var displayPhone: String?
+    var distance: Double?
     
     enum CodingKeys : String, CodingKey {
-        case imageURL = "image_url"
-        case reviewCount = "review_count"
+        case imageUrl = "image_url"
         case isClosed = "is_closed"
+        case reviewCount = "review_count"
         case displayPhone = "display_phone"
         
         case id
         case alias
         case name
         case url
-        case coordinates
-        case rating
         case categories
-        case transaction
+        case rating
+        case coordinates
+        case transactions
         case price
         case location
         case phone
@@ -46,12 +49,12 @@ class Business : Decodable, Identifiable, ObservableObject {
     
     func getImageData(){
         // Check that image url isn't nil
-        guard imageURL != nil else {
+        guard imageUrl != nil else {
             return
         }
         
         // Download the data for the image
-        if let url = URL(string: imageURL!){
+        if let url = URL(string: imageUrl!){
             // Get a session
             let session = URLSession.shared
             let dataTask = session.dataTask(with: url) { (data, response, error) in
@@ -61,6 +64,9 @@ class Business : Decodable, Identifiable, ObservableObject {
                         // Set the image data
                         self.imageData = data!
                     }
+                }else{
+                    print(error)
+                    
                 }
             }
             
@@ -78,12 +84,14 @@ struct Coordinate : Decodable{
 }
 
 struct Location : Decodable {
-    var address1, address2, address3 : String?
-    var city : String?
-    var zipCode : String?
-    var country : String?
-    var state  : String?
-    var displayAddress : [String]?
+    var address1: String?
+    var address2: String?
+    var address3: String?
+    var city: String?
+    var zipCode: String?
+    var country: String?
+    var state: String?
+    var displayAddress: [String]?
     
     enum CodingKeys : String, CodingKey {
         case zipCode = "zip_code"

@@ -38,6 +38,6 @@ struct BusinessRow: View {
                         .font(.caption)
                 }
             }
-        }
+        }.foregroundColor(.black)
     }
 }

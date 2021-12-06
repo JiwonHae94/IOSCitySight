@@ -15,7 +15,7 @@ struct BusinessList: View {
         ScrollView(showsIndicators: false){
             LazyVStack(alignment: .leading, pinnedViews: [.sectionHeaders]) {
                 
-                BusinessSection(title: "Restuarants", businesss: model.resturants)
+                BusinessSection(title: "Restuarants", businesss: model.restaurants)
                 
                 BusinessSection(title: "Sights", businesss: model.sights)
             }

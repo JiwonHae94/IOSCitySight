@@ -14,14 +14,18 @@ class ContentModel : NSObject, CLLocationManagerDelegate, ObservableObject{
     
     var locationManager = CLLocationManager()
     
-    @Published var resturants = [Business]()
+    @Published var restaurants = [Business]()
     @Published var sights = [Business]()
     
     override init(){
+        
+        // Init method of NSObject
         super.init()
         
-        // Request permission from the user
+        // Set content model as the delegate of the location manager
         locationManager.delegate = self
+        
+        // Request permission from the user
         locationManager.requestWhenInUseAuthorization()
     }
     
@@ -32,11 +36,14 @@ class ContentModel : NSObject, CLLocationManagerDelegate, ObservableObject{
         // Update the authorizationState property
         authorizationState = locationManager.authorizationStatus
         
-        if locationManager.authorizationStatus == .authorizedAlways || locationManager.authorizationStatus == .authorizedWhenInUse{
+        if locationManager.authorizationStatus == .authorizedAlways ||
+            locationManager.authorizationStatus == .authorizedWhenInUse {
+            
             // We have permission
+            // Start geolocating the user, after we get permission
             locationManager.startUpdatingLocation()
         }
-        else if locationManager.authorizationStatus == .denied{
+        else if locationManager.authorizationStatus == .denied {
             // We don't have permission
         }
     }
@@ -45,13 +52,14 @@ class ContentModel : NSObject, CLLocationManagerDelegate, ObservableObject{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         // Give us the locatin of the user
         let userLocation = locations.first
+        
         if userLocation != nil{
             // WE have location
             // Stop requesting the location after we get it once
             locationManager.stopUpdatingLocation()
             
             getBusinesses(category: Constants.sightsKey, location: userLocation!)
-            getBusinesses(category: Constants.resturantsKey, location: userLocation!)
+            getBusinesses(category: Constants.restaurantsKey, location: userLocation!)
         }
         
     }
@@ -85,31 +93,33 @@ class ContentModel : NSObject, CLLocationManagerDelegate, ObservableObject{
                     do {
                         // parse json
                         let decoder = JSONDecoder()
-                        let result = try decoder.decode(BusinessSearch.self, from : data!)
+                        let result = try decoder.decode(BusinessSearch.self, from: data!)
                         
                         // Sort businesses
                         var businesses = result.businesses
-                        businesses.sort { b1, b2 in
+                        businesses.sort { (b1, b2) -> Bool in
                             return b1.distance ?? 0 < b2.distance ?? 0
                         }
                         
-                        // Call the get image function of the business
-                        for b in businesses{
+                        // Call the get image function of the businesses
+                        for b in businesses {
                             b.getImageData()
                         }
                         
                         DispatchQueue.main.async {
                             
-                            // Assing results to the appropriate category
-                            switch category{
+                            // Assign results to the appropriate property
+                            
+                            switch category {
                             case Constants.sightsKey:
                                 self.sights = businesses
-                            case Constants.resturantsKey:
-                                self.resturants = businesses
+                            case Constants.restaurantsKey:
+                                self.restaurants = businesses
                             default:
                                 break
                             }
                         }
+
                         
                     }
                     catch{

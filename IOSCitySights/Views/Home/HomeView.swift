@@ -12,25 +12,30 @@ struct HomeView: View {
     @State var isMapShowing = false
     
     var body: some View {
-        if model.resturants.count != 0 || model.sights.count != 0{
-            // Determine if we should show list of map
-            if !isMapShowing{
-                // Show list
-                VStack(alignment: .leading){
-                    HStack{
-                        Image(systemName: "location")
-                        Text("San Francisco")
-                        Spacer()
-                        Text("Switch to map views")
+        if model.restaurants.count != 0 || model.sights.count != 0{
+            NavigationView {
+                // Determine if we should show list of map
+                if !isMapShowing{
+                    // Show list
+                    VStack(alignment: .leading){
+                        HStack{
+                            Image(systemName: "location")
+                            Text("San Francisco")
+                            Spacer()
+                            Text("Switch to map views")
+                        }
+                        
+                        Divider()
+                        
+                        BusinessList()
+                        
                     }
-                    
-                    Divider()
-                    
-                    BusinessList()
-                    
-                }.padding([.horizontal, .top])
-            }else{
-                // Show map
+                    .padding([.horizontal, .top])
+                    .navigationBarHidden(true)
+                
+                } else{
+                    // Show map
+                }
             }
             
         }else{
