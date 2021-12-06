@@ -10,6 +10,8 @@ import CoreLocation
 
 class ContentModel : NSObject, CLLocationManagerDelegate, ObservableObject{
     
+    @Published var authorizationState = CLAuthorizationStatus.notDetermined
+    
     var locationManager = CLLocationManager()
     
     @Published var resturants = [Business]()
@@ -21,13 +23,15 @@ class ContentModel : NSObject, CLLocationManagerDelegate, ObservableObject{
         // Request permission from the user
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-        
     }
     
 
     //MARK: check whether use has granted authorization
     func locationManagerDidChangeAuthorization(_ manager : CLLocationManager){
 
+        // Update the authorizationState property
+        authorizationState = locationManager.authorizationStatus
+        
         if locationManager.authorizationStatus == .authorizedAlways || locationManager.authorizationStatus == .authorizedWhenInUse{
             // We have permission
             locationManager.startUpdatingLocation()
@@ -94,7 +98,6 @@ class ContentModel : NSObject, CLLocationManagerDelegate, ObservableObject{
                             default:
                                 break
                             }
-                            
                         }
                         
                     }

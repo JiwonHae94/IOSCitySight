@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Business : Decodable{
+struct Business : Decodable, Identifiable {
     var id : String?
     var alias, name, image_url, url : String?
     var is_closed : Bool?
