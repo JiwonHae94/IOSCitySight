@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C244A93275FC3FF0086E4C5 /* LocationDeniedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C244A92275FC3FF0086E4C5 /* LocationDeniedView.swift */; };
 		7C533664275E7AB200F61191 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C533663275E7AB200F61191 /* LaunchView.swift */; };
 		7C533668275E7AF300F61191 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C533667275E7AF300F61191 /* HomeView.swift */; };
 		7C53366B275E7D3400F61191 /* BusinessList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53366A275E7D3400F61191 /* BusinessList.swift */; };
@@ -23,7 +24,6 @@
 		7CD478A527552C30006FF55A /* IOSCitySightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD478A427552C30006FF55A /* IOSCitySightTests.swift */; };
 		7CD478AF27552C30006FF55A /* IOSCitySightUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD478AE27552C30006FF55A /* IOSCitySightUITests.swift */; };
 		7CD478B127552C30006FF55A /* IOSCitySightUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD478B027552C30006FF55A /* IOSCitySightUITestsLaunchTests.swift */; };
-		7CD478C127552D2A006FF55A /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD478C027552D2A006FF55A /* ListView.swift */; };
 		7CD478C527552D42006FF55A /* BusinessDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD478C427552D42006FF55A /* BusinessDetail.swift */; };
 		7CD478C927552D94006FF55A /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD478C827552D94006FF55A /* OnboardingView.swift */; };
 		7CD478CB27552DA5006FF55A /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD478CA27552DA5006FF55A /* ContentModel.swift */; };
@@ -50,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7C244A92275FC3FF0086E4C5 /* LocationDeniedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDeniedView.swift; sourceTree = "<group>"; };
 		7C533663275E7AB200F61191 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		7C533667275E7AF300F61191 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "\U0010HomeView.swift"; sourceTree = "<group>"; };
 		7C53366A275E7D3400F61191 /* BusinessList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessList.swift; sourceTree = "<group>"; };
@@ -69,7 +70,6 @@
 		7CD478AA27552C30006FF55A /* IOSCitySightsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IOSCitySightsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CD478AE27552C30006FF55A /* IOSCitySightUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSCitySightUITests.swift; sourceTree = "<group>"; };
 		7CD478B027552C30006FF55A /* IOSCitySightUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSCitySightUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		7CD478C027552D2A006FF55A /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		7CD478C427552D42006FF55A /* BusinessDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDetail.swift; sourceTree = "<group>"; };
 		7CD478C827552D94006FF55A /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		7CD478CA27552DA5006FF55A /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
@@ -103,6 +103,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C244A91275FC3E80086E4C5 /* Denied */ = {
+			isa = PBXGroup;
+			children = (
+				7C244A92275FC3FF0086E4C5 /* LocationDeniedView.swift */,
+			);
+			path = Denied;
+			sourceTree = "<group>";
+		};
 		7C533665275E7AD700F61191 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,10 +184,10 @@
 			isa = PBXGroup;
 			children = (
 				7CD4789327552C2D006FF55A /* IOSCitySightsApp.swift */,
-				7CD478D027553F8F006FF55A /* Helpers */,
-				7CD478BF27552CDC006FF55A /* Models */,
 				7CD478BD27552CC6006FF55A /* Views */,
+				7CD478BF27552CDC006FF55A /* Models */,
 				7CD478BE27552CCC006FF55A /* ViewModels */,
+				7CD478D027553F8F006FF55A /* Helpers */,
 				7CD4789727552C30006FF55A /* Assets.xcassets */,
 				7CD4789927552C30006FF55A /* Preview Content */,
 			);
@@ -214,10 +222,10 @@
 		7CD478BD27552CC6006FF55A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7C533666275E7AE100F61191 /* Onboarding */,
-				7C533665275E7AD700F61191 /* Home */,
-				7CD478C027552D2A006FF55A /* ListView.swift */,
 				7C533663275E7AB200F61191 /* LaunchView.swift */,
+				7C533666275E7AE100F61191 /* Onboarding */,
+				7C244A91275FC3E80086E4C5 /* Denied */,
+				7C533665275E7AD700F61191 /* Home */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -383,6 +391,7 @@
 				7C533664275E7AB200F61191 /* LaunchView.swift in Sources */,
 				7CD478D227553F99006FF55A /* Constants.swift in Sources */,
 				7CD478CB27552DA5006FF55A /* ContentModel.swift in Sources */,
+				7C244A93275FC3FF0086E4C5 /* LocationDeniedView.swift in Sources */,
 				7CD478C527552D42006FF55A /* BusinessDetail.swift in Sources */,
 				7C533675275E916C00F61191 /* BusinessMap.swift in Sources */,
 				7CD478CF27553DDC006FF55A /* BusinessSearch.swift in Sources */,
@@ -391,7 +400,6 @@
 				7C53366F275E80CE00F61191 /* BusinessSection.swift in Sources */,
 				7CD4789427552C2D006FF55A /* IOSCitySightsApp.swift in Sources */,
 				7C53366D275E802F00F61191 /* BusinessSectionHeader.swift in Sources */,
-				7CD478C127552D2A006FF55A /* ListView.swift in Sources */,
 				7C53366B275E7D3400F61191 /* BusinessList.swift in Sources */,
 				7CD478C927552D94006FF55A /* OnboardingView.swift in Sources */,
 				7CD478CD27553C2B006FF55A /* Business.swift in Sources */,
